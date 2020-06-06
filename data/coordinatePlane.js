@@ -3,8 +3,14 @@ class CoordinatePlane{
         this.origin = {x: oX, y: oY};
     }
     
+    /*mapViaOrigin(pos){
+        let x = map(pos.x, 0, width, width, -width/2, width/2);
+        let y = map(pos.y, 0, height, height/2, -height/2);
+        return {x: x, y:y};
+    }*/
+
     show() {
-        pop();
+        push();
             background(PLANE_BG);
             stroke(PLANE_LINE);
             strokeWeight(PLANE_WEIGHT);
@@ -27,6 +33,6 @@ class CoordinatePlane{
                     line(wMid-5, hMid-diff, wMid+5, hMid-diff); 
                 }
             }
-        push();    
+        pop();    
     }
 }

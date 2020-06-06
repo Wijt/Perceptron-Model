@@ -6,3 +6,11 @@ PLANE_LINE = "#1C3738";
 PLANE_WEIGHT = 5;
 PLANE_STYLE = 1; // 0: line, 1: Dashed
 PLANE_DASH_GAP = 25;
+//#endregion
+
+//#region DOT
+DOT_LENGTH = 100;
+DOT_ONE = "#E7E247";
+DOT_TWO = "#225560";
+DOT_R = 20;
+
