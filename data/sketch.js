@@ -36,12 +36,12 @@ function setup(){
 
     p = new Perceptron();
 
-    new Separator(function(x) { return 0.4*x+100; }, 2, "#F15025");
+    new Separator(function(x) { return 0.4*x-100; }, 2, "#F15025");
     new Separator(function (x) { return (-p.weights[2] - p.weights[0] * x) / p.weights[1]; }, 2, "#2BA84A");
     
-    for (let i = 0; i < 500000; i++) {
+    /*for (let i = 0; i < 5000000; i++) {
         nextDot();
-    }
+    }*/
 }
 
 function mouseReleased(){
@@ -58,7 +58,9 @@ function nextDot(){
 
 function draw() {
     //frameRate(15)
-    //nextDot();
+    for (let i = 0; i < dots.length; i++) {
+        nextDot();
+    }
     translate(width/2,height/2);
     cPlane.show();
     dots.forEach(element => {
@@ -67,4 +69,10 @@ function draw() {
     separators.forEach(element => {
         element.show();
     });
+    push();
+        fill(255);
+        textStyle(BOLD);
+        text("Me\t: x: 0, y: " + nf(separators[0].func(0),null,2).toString(), min.x+10, min.y+15);
+        text("AI \t: x: 0, y: " + nf(separators[1].func(0),null,2).toString(), min.x+10, min.y+30);
+    pop();
 }
