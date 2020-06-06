@@ -13,4 +13,7 @@ DOT_LENGTH = 100;
 DOT_ONE = "#E7E247";
 DOT_TWO = "#225560";
 DOT_R = 20;
+//#endregion
 
+//#region PERCEPTRON
+PERCEPTRON_W_LEN = 2;
