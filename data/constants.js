@@ -5,7 +5,7 @@
 PLANE_BG = "#040F0F";
 PLANE_LINE = "#1C3738";
 PLANE_WEIGHT = 5;
-PLANE_STYLE = 0; // 0: line, 1: Dashed 2: Both
+PLANE_STYLE = 1; // 0: line, 1: Dashed 2: Both
 PLANE_DASH_GAP = 25;
 //#endregion
 

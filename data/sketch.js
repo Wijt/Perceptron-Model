@@ -11,7 +11,7 @@ let min = {x: null, y: null}, max = {x: null, y: null};
 
 function centerScaleCanvas(canvas){
     if (window.innerWidth<window.innerHeight) resizeCanvas(window.innerWidth, window.innerWidth);
-    else resizeCanvas(window.innerHeight, window.innerHeight);
+    else resizeCanvas(window.innerHeight-50, window.innerHeight-50);
     var x = (windowWidth - width) / 2;
     var y = (windowHeight - height) / 2;
     canvas.position(x, y);
@@ -65,7 +65,7 @@ function nextDot(){
 }
 
 function draw() {
-    frameRate(15)
+    //frameRate(15)
     nextDot();
     translate(width/2,height/2);
     cPlane.show();
