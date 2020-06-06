@@ -1,7 +1,7 @@
 class Perceptron {
     constructor() {
         this.weights = [];
-        this.learingRate = 0.1;
+        this.learingRate = 0.00001;
 
         for (let i = 0; i < PERCEPTRON_W_LEN; i++) {
             this.weights.push(random(-1,1));
