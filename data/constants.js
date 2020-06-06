@@ -1,4 +1,5 @@
 //https://coolors.co/040f0f-225560-e7e247-aa1155-2ba84a-1c3738-2d3a3a-fcfffc
+//https://coolors.co/040f0f-225560-044389-e7e247-aa1155-2ba84a-1c3738-2d3a3a-f15025
 
 //#region plane
 PLANE_BG = "#040F0F";
@@ -12,6 +13,7 @@ PLANE_DASH_GAP = 25;
 DOT_LENGTH = 100;
 DOT_ONE = "#E7E247";
 DOT_TWO = "#225560";
+DOT_ZERO = "#EAEAEA";
 DOT_R = 20;
 //#endregion
 

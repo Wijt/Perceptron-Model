@@ -1,6 +1,7 @@
 
 let cPlane;
 let dots = [];
+let trainCount = 0;
 let p;
 
 function centerScaleCanvas(canvas){
@@ -22,7 +23,18 @@ function setup(){
     }
 
     p = new Perceptron();
-    console.log(p.fire([-1, 0.5]));
+    /*for (let i = 0; i < 50; i++) {
+        dots.forEach(dot => {
+            p.train([dot.pos.x, dot.pos.y]);
+            dot.label = p.fire([dot.pos.x, dot.pos.y]);
+        });   
+    }*/
+}
+
+function mouseReleased(){
+    let dot = dots[trainCount++ % dots.length];
+    p.train([dot.pos.x, dot.pos.y]);
+    dot.label = p.fire([dot.pos.x, dot.pos.y]);
 }
 
 function draw() {
