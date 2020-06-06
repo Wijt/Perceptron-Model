@@ -8,7 +8,6 @@ class Dot{
     show() {
         push();
             noStroke();
-            
             if (this.label == 1){
                 fill(DOT_ONE);
             }else if (this.label == -1){

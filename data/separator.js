@@ -1,5 +1,6 @@
 class Separator {
     constructor(func, size, color) {
+        this.func = func;
         this.first = {x: min.x, y: func(min.x)};
         this.second = {x: max.x, y: func(max.x)};
         this.color = color;

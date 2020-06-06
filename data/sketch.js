@@ -10,8 +10,10 @@ let min = {x: null, y: null}, max = {x: null, y: null};
 
 
 function centerScaleCanvas(canvas){
-    if (window.innerWidth<window.innerHeight) resizeCanvas(window.innerWidth, window.innerWidth);
-    else resizeCanvas(window.innerHeight-50, window.innerHeight-50);
+    let margin = 50;
+    if (window.innerWidth < window.innerHeight) resizeCanvas(window.innerWidth, window.innerWidth);
+    else resizeCanvas(window.innerHeight, window.innerHeight);
+    resizeCanvas(width - margin, height - margin);
     var x = (windowWidth - width) / 2;
     var y = (windowHeight - height) / 2;
     canvas.position(x, y);
@@ -34,20 +36,12 @@ function setup(){
 
     p = new Perceptron();
 
-    new Separator(function(x) {return x;}, 2, "#F15025");
-    new Separator(function (x) {
-            return -p.weights[0]*x/p.weights[1];
-        },2,"#2BA84A");
+    new Separator(function(x) { return 0.4*x+100; }, 2, "#F15025");
+    new Separator(function (x) { return (-p.weights[2] - p.weights[0] * x) / p.weights[1]; }, 2, "#2BA84A");
     
-    /*for (let i = 0; i < 500000; i++) {
+    for (let i = 0; i < 500000; i++) {
         nextDot();
-    }*/
-    /*for (let i = 0; i < 50; i++) {
-        dots.forEach(dot => {
-            p.train([dot.pos.x, dot.pos.y]);
-            dot.label = p.fire([dot.pos.x, dot.pos.y]);
-        });   
-    }*/
+    }
 }
 
 function mouseReleased(){
@@ -56,17 +50,15 @@ function mouseReleased(){
 
 function nextDot(){
     let dot = dots[trainCount++ % dots.length];
-    p.train([dot.pos.x, dot.pos.y]);
+    p.train([dot.pos.x, dot.pos.y, 1]);
     separators.pop();
-    new Separator(function (x) {
-        return -p.weights[0]*x/p.weights[1];
-    },2,"#2BA84A");
-    dot.label = p.fire([dot.pos.x, dot.pos.y]);
+    new Separator(function (x) { return (-p.weights[2] - p.weights[0] * x) / p.weights[1]; },2,"#2BA84A");
+    dot.label = p.fire([dot.pos.x, dot.pos.y, 1]);
 }
 
 function draw() {
     //frameRate(15)
-    nextDot();
+    //nextDot();
     translate(width/2,height/2);
     cPlane.show();
     dots.forEach(element => {

@@ -1,7 +1,7 @@
 class Perceptron {
     constructor() {
         this.weights = [];
-        this.learingRate = 0.00001;
+        this.learingRate = PERCEPTRON_LEARING_RATE;
 
         for (let i = 0; i < PERCEPTRON_W_LEN; i++) {
             this.weights.push(random(-1,1));
@@ -18,7 +18,7 @@ class Perceptron {
 
     train(inputs){
         let answer = this.fire(inputs);
-        let orj = inputs[0] > inputs[1] ? 1 : -1;
+        let orj = inputs[1] < separators[0].func(inputs[0]) ? 1 : -1;
         let error = orj - answer;
         for (let i = 0; i < this.weights.length; i++) {
             this.weights[i] += error * inputs[i] * this.learingRate;
