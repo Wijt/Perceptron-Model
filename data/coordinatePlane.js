@@ -4,9 +4,29 @@ class CoordinatePlane{
     }
     
     show() {
-        background(0)
-        stroke(255);
-        line(0, this.origin.y, width, this.origin.y); 
-        line(this.origin.x, 0, this.origin.x, height);   
+        pop();
+            background(PLANE_BG);
+            stroke(PLANE_LINE);
+            strokeWeight(PLANE_WEIGHT);
+            if(PLANE_STYLE == 0){
+                line(0, this.origin.y, width, this.origin.y); 
+                line(this.origin.x, 0, this.origin.x, height);
+            }else if(PLANE_STYLE == 1){
+                let w = width;
+                let h = height;
+                let wMid = int(w/2);
+                let hMid = int(h/2);
+                for (let i = wMid; i < w; i += PLANE_DASH_GAP){
+                    let diff = i-wMid;
+                    line(i, hMid-5, i, hMid+5);
+                    line(wMid-diff, hMid-5, wMid-diff, hMid+5);
+                }
+                for (let i = hMid; i < h; i += PLANE_DASH_GAP){
+                    let diff = i-hMid;
+                    line(wMid-5, i, wMid+5, i); 
+                    line(wMid-5, hMid-diff, wMid+5, hMid-diff); 
+                }
+            }
+        push();    
     }
 }
