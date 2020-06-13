@@ -57,10 +57,11 @@ function nextDot(){
 }
 
 function draw() {
-    //frameRate(15)
-    for (let i = 0; i < dots.length; i++) {
+    frameRate(180)
+    //nextDot();  
+    /*for (let i = 0; i < dots.length; i++) {
         nextDot();
-    }
+    }*/
     translate(width/2,height/2);
     cPlane.show();
     dots.forEach(element => {
